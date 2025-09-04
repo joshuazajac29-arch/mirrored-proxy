@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // List of domains to rotate daily
+        const domains = [
+            "https://proxy1.example.com",
+            "https://proxy2.example.com", 
+            "https://proxy3.example.com"
+        ];
+        
+        // Get daily domain based on date
+        function getDailyDomain() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            return domains[dayOfYear % domains.length];
+        }
+        
+        // Redirect to today's proxy
+        window.location.href = getDailyDomain();
+    </script>
+</head>
+<body>
+    <p>Redirecting to today's proxy mirror...</p>
+</body>
+</html>
